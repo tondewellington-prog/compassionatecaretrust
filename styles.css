@@ -978,9 +978,10 @@ h1, h2, h3, h4, h5, h6 {
    }
 
    .staff figure img {
-      with: 100%;
+      with: 250px;
       max-width: 250px;
-      height: auto;
+      height: 250px;
+      object-fit: cover;
       border-radius: 50%;
       box-shadow: white 0 0 10px;  
       display: block;
