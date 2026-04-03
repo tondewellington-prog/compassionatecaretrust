@@ -37,12 +37,14 @@
             z-index: 2;
         }
         
-        /* About Cards Background Images (Our Vision, Our Values, Our Impact) */
+        /* About Cards Background Images (Our Vision, Our Values, Our Impact) - NOW VISIBLE */
         .about-card {
             position: relative;
             overflow: hidden;
             border-radius: 16px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Remove white background - let image show through */
+            background: transparent;
         }
         
         .about-card::before {
@@ -54,13 +56,14 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            opacity: 0.15;
+            /* Increased opacity to make image VISIBLE */
+            opacity: 1;
             z-index: 0;
-            transition: opacity 0.3s ease;
+            transition: transform 0.3s ease;
         }
         
         .about-card:hover::before {
-            opacity: 0.25;
+            transform: scale(1.05);
         }
         
         .about-card:nth-child(1)::before {
@@ -75,19 +78,37 @@
             background-image: url('cct.jpeg');
         }
         
+        /* Semi-transparent overlay on cards for text readability */
+        .about-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
         .about-card .icon-box,
         .about-card h3,
         .about-card p {
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            color: white;
         }
         
-        /* Program Cards Background Images (replacing emojis with background images) */
+        .about-card .icon-box svg {
+            stroke: white;
+        }
+        
+        /* Program Cards Background Images - NOW VISIBLE */
         .program-card {
             position: relative;
             overflow: hidden;
             border-radius: 20px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: transparent;
         }
         
         .program-card::before {
@@ -99,14 +120,14 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            opacity: 0.2;
+            /* Full opacity - image fully visible */
+            opacity: 1;
             z-index: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            transition: transform 0.3s ease;
         }
         
         .program-card:hover::before {
-            opacity: 0.3;
-            transform: scale(1.02);
+            transform: scale(1.05);
         }
         
         /* Healthcare Support background */
@@ -139,20 +160,39 @@
             background-image: url('community outresch.jpeg');
         }
         
+        /* Dark overlay for program cards to make text readable */
+        .program-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1;
+            border-radius: 20px;
+        }
+        
         .program-card .program-icon,
         .program-card h3,
         .program-card p,
         .program-card .program-link {
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            color: white;
         }
         
-        /* News Cards Background Images */
+        .program-card .program-link {
+            color: #ffd700;
+        }
+        
+        /* News Cards Background Images - NOW VISIBLE */
         .news-card {
             position: relative;
             overflow: hidden;
             border-radius: 16px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: transparent;
         }
         
         .news-card::before {
@@ -164,13 +204,13 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            opacity: 0.15;
+            opacity: 1;
             z-index: 0;
-            transition: opacity 0.3s ease;
+            transition: transform 0.3s ease;
         }
         
         .news-card:hover::before {
-            opacity: 0.25;
+            transform: scale(1.05);
         }
         
         /* First news card background */
@@ -188,31 +228,40 @@
             background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
         }
         
+        /* Dark overlay for news cards */
+        .news-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            border-radius: 16px;
+        }
+        
         .news-card .news-date,
         .news-card .news-content,
         .news-card h3,
         .news-card p,
         .news-card .read-more {
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            color: white;
         }
         
-        /* Ensure card content has proper background for readability */
-        .about-card,
-        .program-card,
-        .news-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(0px);
+        .news-card .read-more {
+            color: #ffd700;
         }
         
-        .about-card:hover,
-        .program-card:hover,
-        .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        .news-card .news-date .day,
+        .news-card .news-date .month {
+            color: white;
+            font-weight: bold;
         }
         
-        /* Preserve original styling for all other elements */
+        /* Preserve original styling for other elements */
         .program-icon {
             font-size: 48px;
             margin-bottom: 20px;
@@ -224,6 +273,27 @@
             .hero {
                 background-attachment: scroll;
             }
+        }
+        
+        /* Make sure section headers stay readable */
+        .section-header h2,
+        .section-header .section-subtitle {
+            color: #1a472a;
+        }
+        
+        /* Mission section stays original */
+        .mission {
+            background: #f4f9f4;
+        }
+        
+        /* Events section stays original */
+        .events-list {
+            background: transparent;
+        }
+        
+        /* Contact section stays original */
+        .contact {
+            background: #f9f9f9;
         }
     </style>
 </head>
@@ -283,7 +353,7 @@
         </div>
     </section>
 
-    <!-- About Us Section (WITH BACKGROUND IMAGES BEHIND VISION, VALUES, IMPACT) -->
+    <!-- About Us Section (WITH VISIBLE BACKGROUND IMAGES) -->
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
@@ -327,7 +397,7 @@
         </div>
     </section>
 
-    <!-- Programs Section (WITH BACKGROUND IMAGES WHERE EMOJES WERE) -->
+    <!-- Programs Section (WITH VISIBLE BACKGROUND IMAGES) -->
     <section id="programs" class="programs">
         <div class="container">
             <div class="section-header">
@@ -387,7 +457,7 @@
         </div>
     </section>
 
-    <!-- News Section (WITH BACKGROUND IMAGES BEHIND LATEST NEWS) -->
+    <!-- News Section (WITH VISIBLE BACKGROUND IMAGES) -->
     <section id="news" class="news">
         <div class="container">
             <div class="section-header">
@@ -635,6 +705,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <!-- Note: Background images are applied via CSS pseudo-elements to preserve original HTML structure -->
 </body>
 </html>
