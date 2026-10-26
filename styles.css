@@ -1069,10 +1069,40 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 2rem;
     }
 
-    .about-grid,
+    /* CHANGED: Programs & News grid remains 1 column, but About grid is now 2 columns */
     .programs-grid,
     .news-grid {
         grid-template-columns: 1fr;
+    }
+
+    .about-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px; 
+    }
+
+    .about-card {
+        padding: 25px 15px;
+    }
+
+    .about-card .icon-box {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+
+    .about-card .icon-box svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .about-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .about-card p {
+        font-size: 0.85rem;
+        line-height: 1.5;
     }
 
     /* Partners mobile */
@@ -1143,6 +1173,30 @@ h1, h2, h3, h4, h5, h6 {
 
     .logo {
         height: 45px;
+    }
+
+    /* Further scaling for About cards on very small phones */
+    .about-card {
+        padding: 15px 10px;
+    }
+    
+    .about-card .icon-box {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 10px;
+    }
+
+    .about-card .icon-box svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .about-card h3 {
+        font-size: 1rem;
+    }
+
+    .about-card p {
+        font-size: 0.75rem;
     }
 
     .partner-card {
