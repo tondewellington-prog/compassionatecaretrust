@@ -339,7 +339,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
-   Partners Section (NEW)
+   Partners Section - LOGO AS BACKGROUND
    ============================================ */
 .partners {
     padding: 80px 0;
@@ -348,18 +348,67 @@ h1, h2, h3, h4, h5, h6 {
 
 .partners-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 20px;
 }
 
+/* Single partner centered */
+.partners-grid.single-partner {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .partner-card {
-    background: var(--light-gray);
-    border-radius: 10px;
-    padding: 40px 30px;
+    position: relative;
+    border-radius: 16px;
+    padding: 50px 40px;
     text-align: center;
+    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 2px solid transparent;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--light-gray);
+}
+
+/* Logo becomes the background image */
+.partner-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--partner-bg, none);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    opacity: 0.35;
+    z-index: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Blue gradient overlay so text stays readable */
+.partner-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(58, 123, 184, 0.75) 0%,
+        rgba(45, 107, 163, 0.85) 100%
+    );
+    z-index: 1;
 }
 
 .partner-card:hover {
@@ -368,32 +417,39 @@ h1, h2, h3, h4, h5, h6 {
     border-color: var(--primary-blue-light);
 }
 
-.partner-logo {
-    max-width: 100%;
-    width: 100%;
-    max-height: 220px;
-    height: auto;
-    object-fit: contain;
-    margin: 0 auto 20px;
-    display: block;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease, transform 0.3s ease;
-}
-.partner-card:hover .partner-logo {
-    filter: grayscale(0%);
+.partner-card:hover::before {
+    opacity: 0.5;
     transform: scale(1.05);
 }
 
+/* Text on top */
+.partner-card h3,
+.partner-card p {
+    position: relative;
+    z-index: 2;
+    color: var(--white);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
 .partner-card h3 {
-    font-size: 1.2rem;
-    color: var(--primary-blue);
-    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: var(--white);
+    margin-bottom: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .partner-card p {
-    font-size: 0.9rem;
-    color: var(--text-light);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.95);
     line-height: 1.6;
+    font-style: italic;
+    max-width: 90%;
+}
+
+/* Hide the img tag visually - it's now the background */
+.partner-logo {
+    display: none;
 }
 
 /* ============================================
@@ -999,17 +1055,21 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .partners-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: 1fr;
         gap: 20px;
     }
 
     .partner-card {
-        padding: 20px 15px;
+        padding: 40px 25px;
+        min-height: 260px;
     }
 
-    .partner-logo {
-        max-width: 100px;
-        max-height: 70px;
+    .partner-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .partner-card p {
+        font-size: 0.9rem;
     }
 
     .footer-bottom {
