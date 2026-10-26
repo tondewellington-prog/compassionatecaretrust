@@ -274,6 +274,14 @@
         .contact {
             background: #f9f9f9;
         }
+
+        /* ===== SINGLE PARTNER CENTERING ===== */
+        .partners-grid.single-partner {
+            grid-template-columns: 1fr;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 </head>
 <body>
@@ -334,7 +342,7 @@
     </section>
 
     <!-- ============================================
-         OUR PARTNERS SECTION (NEW - AFTER MISSION)
+         OUR PARTNERS SECTION (SINGLE PARTNER)
          ============================================ -->
     <section id="partners" class="partners">
         <div class="container">
@@ -342,26 +350,12 @@
                 <h2>Our Partners</h2>
                 <p class="section-subtitle">Proudly working together to create lasting change</p>
             </div>
-            <div class="partners-grid">
-                <!-- Partner 1 -->
+            <div class="partners-grid single-partner">
+                <!-- Partner 1 - SCEP -->
                 <div class="partner-card">
                     <img src="SCEP.png" alt="SEKE COMMUNITY EMPOWERMENT PROGRAM" class="partner-logo">
-                    <h3>Partner Name 1</h3>
+                    <h3>SEKE COMMUNITY EMPOWERMENT PROGRAM</h3>
                     <p>From Training to Enterprise, From Graduation to Opportunity</p>
-                </div>
-                
-                <!-- Partner 2 - Your NEW partner -->
-                <div class="partner-card">
-                    <img src="partner-logo2.png" alt="New Partner Name" class="partner-logo">
-                    <h3>New Partner Name</h3>
-                    <p>Description of this new partnership and the impact it will create.</p>
-                </div>
-                
-                <!-- Partner 3 -->
-                <div class="partner-card">
-                    <img src="partner-logo3.png" alt="Partner Name 3" class="partner-logo">
-                    <h3>Partner Name 3</h3>
-                    <p>Brief description of the partnership.</p>
                 </div>
             </div>
         </div>
