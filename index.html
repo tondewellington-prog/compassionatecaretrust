@@ -37,13 +37,12 @@
             z-index: 2;
         }
         
-        /* About Cards Background Images (Our Vision, Our Values, Our Impact) - NOW VISIBLE */
+        /* About Cards Background Images (Our Vision, Our Values, Our Impact) - VISIBLE */
         .about-card {
             position: relative;
             overflow: hidden;
             border-radius: 16px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            /* Remove white background - let image show through */
             background: transparent;
         }
         
@@ -56,7 +55,6 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            /* Increased opacity to make image VISIBLE */
             opacity: 1;
             z-index: 0;
             transition: transform 0.3s ease;
@@ -78,7 +76,6 @@
             background-image: url('cct.jpeg');
         }
         
-        /* Semi-transparent overlay on cards for text readability */
         .about-card::after {
             content: '';
             position: absolute;
@@ -102,7 +99,7 @@
             stroke: white;
         }
         
-        /* Program Cards Background Images - NOW VISIBLE */
+        /* Program Cards Background Images - VISIBLE */
         .program-card {
             position: relative;
             overflow: hidden;
@@ -120,7 +117,6 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            /* Full opacity - image fully visible */
             opacity: 1;
             z-index: 0;
             transition: transform 0.3s ease;
@@ -130,37 +126,30 @@
             transform: scale(1.05);
         }
         
-        /* Healthcare Support background */
         .program-card:nth-child(1)::before {
             background-image: url('healthcare support.jpeg');
         }
         
-        /* Education & Training background */
         .program-card:nth-child(2)::before {
             background-image: url('education and training.jpeg');
         }
         
-        /* Family Support Services background */
         .program-card:nth-child(3)::before {
             background-image: url('family support.jpeg');
         }
         
-        /* Economic Empowerment background */
         .program-card:nth-child(4)::before {
             background-image: url('economic empowerment.jpeg');
         }
         
-        /* Protection Services background */
         .program-card:nth-child(5)::before {
             background-image: url('protection.jpeg');
         }
         
-        /* Community Outreach background */
         .program-card:nth-child(6)::before {
             background-image: url('community outresch.jpeg');
         }
         
-        /* Dark overlay for program cards to make text readable */
         .program-card::after {
             content: '';
             position: absolute;
@@ -186,7 +175,7 @@
             color: #ffd700;
         }
         
-        /* News Cards Background Images - NOW VISIBLE */
+        /* News Cards Background Images - VISIBLE */
         .news-card {
             position: relative;
             overflow: hidden;
@@ -213,22 +202,18 @@
             transform: scale(1.05);
         }
         
-        /* First news card background */
         .news-card:nth-child(1)::before {
             background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
         }
         
-        /* Second news card background */
         .news-card:nth-child(2)::before {
             background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
         }
         
-        /* Third news card background */
         .news-card:nth-child(3)::before {
             background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
         }
         
-        /* Dark overlay for news cards */
         .news-card::after {
             content: '';
             position: absolute;
@@ -261,44 +246,38 @@
             font-weight: bold;
         }
         
-        /* Preserve original styling for other elements */
         .program-icon {
             font-size: 48px;
             margin-bottom: 20px;
             display: inline-block;
         }
         
-        /* Keep original responsive behavior */
         @media (max-width: 768px) {
             .hero {
                 background-attachment: scroll;
             }
         }
         
-        /* Make sure section headers stay readable */
         .section-header h2,
         .section-header .section-subtitle {
             color: #1a472a;
         }
         
-        /* Mission section stays original */
         .mission {
             background: #f4f9f4;
         }
         
-        /* Events section stays original */
         .events-list {
             background: transparent;
         }
         
-        /* Contact section stays original */
         .contact {
             background: #f9f9f9;
         }
     </style>
 </head>
 <body>
-    <!-- Header (EXACTLY ORIGINAL - NO CHANGES) -->
+    <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="header-content">
@@ -314,6 +293,7 @@
                         <li><a href="#home" class="active">Home</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#programs">Programs</a></li>
+                        <li><a href="#partners">Partners</a></li>
                         <li><a href="#news">News</a></li>
                         <li><a href="#events">Events</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -328,7 +308,7 @@
         </div>
     </header>
 
-    <!-- Hero Section (WITH BACKGROUND IMAGE BEHIND BANNER) -->
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
         <div class="container">
@@ -343,7 +323,7 @@
         </div>
     </section>
 
-    <!-- Mission Statement (ORIGINAL) -->
+    <!-- Mission Statement -->
     <section class="mission">
         <div class="container">
             <div class="mission-content">
@@ -353,7 +333,41 @@
         </div>
     </section>
 
-    <!-- About Us Section (WITH VISIBLE BACKGROUND IMAGES) -->
+    <!-- ============================================
+         OUR PARTNERS SECTION (NEW - AFTER MISSION)
+         ============================================ -->
+    <section id="partners" class="partners">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Partners</h2>
+                <p class="section-subtitle">Proudly working together to create lasting change</p>
+            </div>
+            <div class="partners-grid">
+                <!-- Partner 1 -->
+                <div class="partner-card">
+                    <img src="partner-logo1.png" alt="Partner Name 1" class="partner-logo">
+                    <h3>Partner Name 1</h3>
+                    <p>Brief description of the partnership and what we achieve together.</p>
+                </div>
+                
+                <!-- Partner 2 - Your NEW partner -->
+                <div class="partner-card">
+                    <img src="partner-logo2.png" alt="New Partner Name" class="partner-logo">
+                    <h3>New Partner Name</h3>
+                    <p>Description of this new partnership and the impact it will create.</p>
+                </div>
+                
+                <!-- Partner 3 -->
+                <div class="partner-card">
+                    <img src="partner-logo3.png" alt="Partner Name 3" class="partner-logo">
+                    <h3>Partner Name 3</h3>
+                    <p>Brief description of the partnership.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
@@ -397,7 +411,7 @@
         </div>
     </section>
 
-    <!-- Programs Section (WITH VISIBLE BACKGROUND IMAGES) -->
+    <!-- Programs Section -->
     <section id="programs" class="programs">
         <div class="container">
             <div class="section-header">
@@ -457,7 +471,7 @@
         </div>
     </section>
 
-    <!-- News Section (WITH VISIBLE BACKGROUND IMAGES) -->
+    <!-- News Section -->
     <section id="news" class="news">
         <div class="container">
             <div class="section-header">
@@ -505,7 +519,7 @@
         </div>
     </section>
 
-    <!-- Events Section (COMPLETELY ORIGINAL) -->
+    <!-- Events Section -->
     <section id="events" class="events">
         <div class="container">
             <div class="section-header">
@@ -556,7 +570,7 @@
         </div>
     </section>
 
-    <!-- Contact Section (COMPLETELY ORIGINAL) -->
+    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
@@ -651,7 +665,7 @@
         </div>
     </section>
 
-    <!-- Footer (COMPLETELY ORIGINAL) -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -669,6 +683,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#programs">Programs</a></li>
+                        <li><a href="#partners">Partners</a></li>
                         <li><a href="#news">News</a></li>
                         <li><a href="#events">Events</a></li>
                         <li><a href="#contact">Contact</a></li>
