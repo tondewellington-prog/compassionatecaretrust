@@ -6,7 +6,7 @@
     <title>CCT–SCEP Collaboration</title>
     <style>
         *{box-sizing:border-box}
-        body{margin:0;background:#f7f5ee;color:#183b32;font:17px/1.65 system-ui,sans-serif}
+        body{margin:0;background:#f7f5ee;color:#183b32;font:17px/1.65 system-ui,sans-serif; position: relative;}
         header,main,footer{max-width:1160px;margin:auto;padding:28px}
         nav{display:flex;justify-content:space-between;gap:20px;font-size:14px;font-weight:700}
         a{color:inherit}
@@ -43,6 +43,149 @@
             header,main,footer{padding:20px}
             h1{letter-spacing:-1px}
             figure img,video{height:280px}
+        }
+
+        /* ============================================
+           LEADERSHIP BUTTON & MODAL STYLES
+           ============================================ */
+        .btn-leadership {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 50px auto;
+            padding: 15px 30px;
+            background: #183b32;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            text-align: center;
+        }
+        .btn-leadership:hover {
+            background: #2a5a4c;
+            transform: translateY(-2px);
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        /* Modal Content (Glassmorphism) */
+        .modal-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            position: relative;
+            color: white;
+        }
+
+        .modal-content h2 {
+            text-align: center;
+            color: white;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 32px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 35px;
+            color: white;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        .close-btn:hover {
+            color: #ffcccc;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .leader-card {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .leader-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            display: block;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            background: rgba(0,0,0,0.3);
+        }
+
+        .leader-card h3 {
+            font-size: 18px;
+            margin: 0 0 5px;
+            color: white;
+        }
+
+        .leader-card p {
+            font-size: 14px;
+            margin: 0;
+            color: #e0e0e0;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-content::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        .modal-content::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -217,11 +360,88 @@
         <section id="contacts">
             <h2>Programme team</h2>
             <p class="lead">For more information about the CCT–SCEP collaboration, please contact the programme team.</p>
+            
+            <!-- Leadership Button placed here at the bottom -->
+            <button id="openModalBtn" class="btn-leadership">Meet Our Leadership</button>
         </section>
     </main>
 
     <footer>
         <p>© 2026 Compassionate Care Trust & SCEP. All rights reserved.</p>
     </footer>
+
+    <!-- LEADERSHIP MODAL -->
+    <div class="modal-overlay" id="leadershipModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h2>Our Leadership</h2>
+            
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <img src="SCEP MEDIA/SCEP LEADERSHIP/Tungamirai-Dube.jpg" alt="Tungamirai Dube" class="leader-img" onerror="this.style.display='none'">
+                    <h3>Tungamirai Dube</h3>
+                    <p>Chairperson</p>
+                </div>
+                <div class="leader-card">
+                    <img src="SCEP MEDIA/SCEP LEADERSHIP/Cde-Chikanya.jpg" alt="Cde Chikanya" class="leader-img" onerror="this.style.display='none'">
+                    <h3>Cde Chikanya</h3>
+                    <p>Vice Chair</p>
+                </div>
+                <div class="leader-card">
+                    <img src="SCEP MEDIA/SCEP LEADERSHIP/Pastor-Sherperd-Mavheneke.jpg" alt="Pastor Sherperd Mavheneke" class="leader-img" onerror="this.style.display='none'">
+                    <h3>Pastor Sherperd Mavheneke</h3>
+                    <p>Program Coordinator</p>
+                </div>
+                <div class="leader-card">
+                    <img src="SCEP MEDIA/SCEP LEADERSHIP/Fortune-Maromo.jpg" alt="Fortune Maromo" class="leader-img" onerror="this.style.display='none'">
+                    <h3>Fortune Maromo</h3>
+                    <p>Vice Coordinator</p>
+                </div>
+                <div class="leader-card">
+                    <img src="SCEP MEDIA/SCEP LEADERSHIP/Tobekile-Sibanda.jpg" alt="Tobekile Sibanda" class="leader-img" onerror="this.style.display='none'">
+                    <h3>Tobekile Sibanda</h3>
+                    <p>Treasurer</p>
+                </div>
+                <div class="leader-card">
+                    <img src="SCEP MEDIA/SCEP LEADERSHIP/Wellington-Nyamandi.jpg" alt="Wellington Nyamandi" class="leader-img" onerror="this.style.display='none'">
+                    <h3>Wellington Nyamandi</h3>
+                    <p>Secretary</p>
+                </div>
+                <div class="leader-card">
+                    <img src="SCEP MEDIA/SCEP LEADERSHIP/Tellmore-Nyamandi.jpg" alt="Tellmore Nyamandi" class="leader-img" onerror="this.style.display='none'">
+                    <h3>Tellmore Nyamandi</h3>
+                    <p>Security</p>
+                </div>
+                <div class="leader-card">
+                    <img src="SCEP MEDIA/SCEP LEADERSHIP/Edith-Haran.jpg" alt="Edith Haran" class="leader-img" onerror="this.style.display='none'">
+                    <h3>Edith Haran</h3>
+                    <p>Committee Member 1</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('leadershipModal');
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+
+        openBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
 </body>
 </html>
