@@ -339,7 +339,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
-   Partners Section - LOGO AS BACKGROUND (MOBILE-FRIENDLY)
+   Partners Section - LOGO AS BACKGROUND, NO BLUE OVERLAY
    ============================================ */
 .partners {
     padding: 80px 0;
@@ -368,7 +368,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 2px solid transparent;
+    border: 2px solid var(--gray);
     min-height: 320px;
     display: flex;
     flex-direction: column;
@@ -377,7 +377,7 @@ h1, h2, h3, h4, h5, h6 {
     background: #ffffff;
 }
 
-/* Logo as background - fully visible */
+/* Logo as background - fully visible, NO overlay */
 .partner-card::before {
     content: '';
     position: absolute;
@@ -390,25 +390,9 @@ h1, h2, h3, h4, h5, h6 {
     background-position: center;
     background-repeat: no-repeat;
     background-color: #ffffff;
-    opacity: 0.9;
+    opacity: 1;
     z-index: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* LIGHT blue overlay so logo shows through clearly */
-.partner-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        135deg,
-        rgba(58, 123, 184, 0.35) 0%,
-        rgba(45, 107, 163, 0.45) 100%
-    );
-    z-index: 1;
+    transition: transform 0.3s ease;
 }
 
 .partner-card:hover {
@@ -418,32 +402,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .partner-card:hover::before {
-    opacity: 1;
     transform: scale(1.05);
 }
 
-/* Text on top with strong shadow + badge background for readability */
+/* Text on top - with own badge background for readability */
 .partner-card h3,
 .partner-card p {
     position: relative;
     z-index: 2;
     color: var(--white);
-    text-shadow: 
-        0 1px 3px rgba(0, 0, 0, 0.9),
-        0 2px 8px rgba(0, 0, 0, 0.7),
-        0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .partner-card h3 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: var(--white);
     margin-bottom: 12px;
     font-weight: 700;
     letter-spacing: 0.5px;
-    background: rgba(45, 107, 163, 0.7);
-    padding: 8px 16px;
+    background: rgba(45, 107, 163, 0.92);
+    padding: 10px 20px;
     border-radius: 8px;
     display: inline-block;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .partner-card p {
@@ -451,10 +431,11 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--white);
     line-height: 1.6;
     font-style: italic;
-    background: rgba(45, 107, 163, 0.7);
-    padding: 6px 14px;
+    background: rgba(45, 107, 163, 0.92);
+    padding: 8px 16px;
     border-radius: 6px;
     max-width: 90%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Hide the img tag visually - it's now the background */
@@ -1064,7 +1045,7 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr;
     }
 
-    /* ===== PARTNERS - MOBILE SPECIFIC FIX ===== */
+    /* ===== PARTNERS - MOBILE ===== */
     .partners-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -1072,34 +1053,17 @@ h1, h2, h3, h4, h5, h6 {
 
     .partner-card {
         padding: 35px 20px;
-        min-height: 300px;
-    }
-
-    /* Extra light overlay on mobile so logo shows clearly */
-    .partner-card::after {
-        background: linear-gradient(
-            135deg,
-            rgba(58, 123, 184, 0.25) 0%,
-            rgba(45, 107, 163, 0.35) 100%
-        );
-    }
-
-    .partner-card::before {
-        opacity: 1;
-        background-size: contain;
-        background-position: center;
+        min-height: 280px;
     }
 
     .partner-card h3 {
-        font-size: 1rem;
-        padding: 6px 12px;
-        background: rgba(45, 107, 163, 0.85);
+        font-size: 0.95rem;
+        padding: 8px 14px;
     }
 
     .partner-card p {
-        font-size: 0.85rem;
-        padding: 5px 10px;
-        background: rgba(45, 107, 163, 0.85);
+        font-size: 0.82rem;
+        padding: 6px 12px;
     }
 
     .footer-bottom {
