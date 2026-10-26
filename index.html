@@ -274,14 +274,6 @@
         .contact {
             background: #f9f9f9;
         }
-
-        /* ===== SINGLE PARTNER CENTERING ===== */
-        .partners-grid.single-partner {
-            grid-template-columns: 1fr;
-            max-width: 450px;
-            margin-left: auto;
-            margin-right: auto;
-        }
     </style>
 </head>
 <body>
@@ -342,7 +334,7 @@
     </section>
 
     <!-- ============================================
-         OUR PARTNERS SECTION (SINGLE PARTNER)
+         OUR PARTNERS SECTION (SINGLE PARTNER - LOGO AS BACKGROUND)
          ============================================ -->
     <section id="partners" class="partners">
         <div class="container">
@@ -351,8 +343,8 @@
                 <p class="section-subtitle">Proudly working together to create lasting change</p>
             </div>
             <div class="partners-grid single-partner">
-                <!-- Partner 1 - SCEP -->
-                <div class="partner-card">
+                <!-- Partner 1 - SCEP with logo as background -->
+                <div class="partner-card" style="--partner-bg: url('SCEP.png');">
                     <img src="SCEP.png" alt="SEKE COMMUNITY EMPOWERMENT PROGRAM" class="partner-logo">
                     <h3>SEKE COMMUNITY EMPOWERMENT PROGRAM</h3>
                     <p>From Training to Enterprise, From Graduation to Opportunity</p>
