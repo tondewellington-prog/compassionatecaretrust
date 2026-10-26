@@ -17,17 +17,27 @@
         .eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:800;color:#92733a}
         .lead{font-size:22px;max-width:780px}
         .hero{width:100%;max-height:540px;object-fit:cover;border-radius:18px}
+        
+        /* Grid for Photos and Videos */
         .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
-        figure{margin:0;background:white;border-radius:12px;overflow:hidden;border:1px solid #deded2}
-        figure img{width:100%;height:330px;object-fit:contain;background:#e7e9df;display:block}
-        figcaption{padding:18px}
-        figcaption span{display:block;font-size:14px;color:#59675e}
+        figure{margin:0;background:white;border-radius:12px;overflow:hidden;border:1px solid #deded2; display:flex; flex-direction:column;}
+        
+        /* Photos */
+        figure img{width:100%;height:330px;object-fit:cover;background:#e7e9df;display:block}
+        
+        /* Videos */
         video{width:100%;height:330px;background:#16261f;display:block;object-fit:cover;}
+        
+        figcaption{padding:18px; flex-grow: 1;}
+        figcaption strong{display:block; font-size:18px; margin-bottom:4px;}
+        figcaption span{display:block;font-size:14px;color:#59675e}
+        
         .panel{background:#183b32;color:white;border-radius:18px;padding:35px}
         .people{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
         .person{border-top:3px solid #b49352;padding:15px 0}
         .note{font-size:13px;color:#647368}
         footer{border-top:1px solid #ccc;font-size:14px}
+        
         @media(max-width:650px){
             .grid,.people{grid-template-columns:1fr}
             header,main,footer{padding:20px}
@@ -39,8 +49,8 @@
 <body>
     <header>
         <div style="padding:12px 0 26px">
-            <!-- SCEP Logo (Will look for this in the SCEP MEDIA folder) -->
-            <img alt="SCEP — Seke Community Empowerment Programme. From Skills to Sustainable Livelihoods" style="width:560px;max-width:100%;height:auto" src="SCEP MEDIA/SCEP-Logo.png">
+            <!-- Top Logo -->
+            <img alt="SCEP — Seke Community Empowerment Programme" style="width:560px;max-width:100%;height:auto" src="SCEP MEDIA/SCEP-Logo.png">
         </div>
         <nav>
             <span>COMPASSIONATE CARE TRUST × SCEP</span>
@@ -55,48 +65,132 @@
     </header>
 
     <main>
-        <section class="grid">
-            <!-- Training/Workshop Media -->
-            <figure>
-                <img src="SCEP MEDIA/Community-Training-Session.jpg" alt="Community members attending a training session">
-                <figcaption>
-                    <strong>Practical skills training</strong>
-                    <span>Community members taking part in a hands-on skills development session.</span>
-                </figcaption>
-            </figure>
-            <figure>
-                <img src="SCEP MEDIA/Enterprise-Development-Workshop.jpg" alt="Enterprise development workshop">
-                <figcaption>
-                    <strong>Enterprise development</strong>
-                    <span>Local entrepreneurs learning business planning and financial literacy.</span>
-                </figcaption>
-            </figure>
+        <!-- PHOTO STORIES SECTION (7 Photos) -->
+        <section>
+            <p class="eyebrow">Photo Stories</p>
+            <h2>Practical learning in our communities</h2>
+            
+            <div class="grid">
+                <figure>
+                    <img src="SCEP MEDIA/Fish-Pond-Construction.jpg" alt="Fish pond construction">
+                    <figcaption>
+                        <strong>Fish pond construction</strong>
+                        <span>Ward 10 · March 2026</span>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="SCEP MEDIA/Mushroom-Farming-Practical.jpg" alt="Mushroom farming practical">
+                    <figcaption>
+                        <strong>Mushroom farming practical</strong>
+                        <span>Ward 10 · September 2026</span>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="SCEP MEDIA/Beekeeping-Lessons.jpg" alt="Beekeeping lessons">
+                    <figcaption>
+                        <strong>Beekeeping lessons</strong>
+                        <span>Ward 10 · April 2026</span>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="SCEP MEDIA/Mushroom-Production.jpg" alt="Mushroom production">
+                    <figcaption>
+                        <strong>Mushroom production</strong>
+                        <span>Ward 9 · August 2026</span>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="SCEP MEDIA/Mushroom-Growing-Bags.jpg" alt="Mushroom growing bags">
+                    <figcaption>
+                        <strong>Mushroom growing bags</strong>
+                        <span>Ward 9 · August 2026</span>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="SCEP MEDIA/Event-Decoration-Training.jpg" alt="Event decoration work-based training">
+                    <figcaption>
+                        <strong>Event decoration: work-based training</strong>
+                        <span>Ward 9 · October 2026</span>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="SCEP MEDIA/Building-Work-Based-Training.jpg" alt="Building work-based training">
+                    <figcaption>
+                        <strong>Building: work-based training</strong>
+                        <span>Ward 12 · July 2026</span>
+                    </figcaption>
+                </figure>
+            </div>
         </section>
 
+        <!-- VIDEO SECTION (6 Videos) -->
         <section>
+            <p class="eyebrow">Video Stories</p>
             <h2>Learning in action</h2>
             <div class="grid">
                 <!-- Video 1 -->
                 <figure>
-                    <video controls poster="SCEP MEDIA/Video1-Poster.jpg">
-                        <source src="SCEP MEDIA/SCEP-Video-1.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
+                    <video controls>
+                        <source src="SCEP MEDIA/Poultry-Production-Training.mp4" type="video/mp4">
                     </video>
                     <figcaption>
-                        <strong>Skills to Livelihoods</strong>
-                        <span>A short film documenting the journey from training to enterprise.</span>
+                        <strong>Poultry production training</strong>
+                        <span>Ward 10 · August 2026</span>
                     </figcaption>
                 </figure>
                 
                 <!-- Video 2 -->
                 <figure>
-                    <video controls poster="SCEP MEDIA/Video2-Poster.jpg">
-                        <source src="SCEP MEDIA/SCEP-Video-2.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
+                    <video controls>
+                        <source src="SCEP MEDIA/Welding-Work-Based-Training.mp4" type="video/mp4">
                     </video>
                     <figcaption>
-                        <strong>Community Voices</strong>
-                        <span>Participants share their experiences and the impact of the programme.</span>
+                        <strong>Welding: work-based training</strong>
+                        <span>Welding activities reported in Wards 9 and 12 · September 2026</span>
+                    </figcaption>
+                </figure>
+
+                <!-- Video 3 -->
+                <figure>
+                    <video controls>
+                        <source src="SCEP MEDIA/Fish-Pond-Work-Based-Training.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>
+                        <strong>Fish pond construction: work-based training</strong>
+                        <span>Ward 10 · July 2026</span>
+                    </figcaption>
+                </figure>
+
+                <!-- Video 4 -->
+                <figure>
+                    <video controls>
+                        <source src="SCEP MEDIA/Metal-Fabrication.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>
+                        <strong>Metal fabrication and construction activity</strong>
+                        <span>From the supplied work-based training collection</span>
+                    </figcaption>
+                </figure>
+
+                <!-- Video 5 -->
+                <figure>
+                    <video controls>
+                        <source src="SCEP MEDIA/Community-Engagement.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>
+                        <strong>Community engagement</strong>
+                        <span>From the supplied community meeting collection · 2026</span>
+                    </figcaption>
+                </figure>
+
+                <!-- Video 6 -->
+                <figure>
+                    <video controls>
+                        <source src="SCEP MEDIA/Community-Meeting.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>
+                        <strong>Community meeting</strong>
+                        <span>From the supplied community meeting collection · 2026</span>
                     </figcaption>
                 </figure>
             </div>
@@ -123,7 +217,6 @@
         <section id="contacts">
             <h2>Programme team</h2>
             <p class="lead">For more information about the CCT–SCEP collaboration, please contact the programme team.</p>
-            <p class="note">This page is a collaborative overview. All images and videos are property of CCT and SCEP.</p>
         </section>
     </main>
 
