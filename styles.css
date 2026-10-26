@@ -339,7 +339,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
-   Partners Section - LOGO AS BACKGROUND
+   Partners Section - LOGO AS BACKGROUND (MOBILE-FRIENDLY)
    ============================================ */
 .partners {
     padding: 80px 0;
@@ -374,10 +374,10 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: var(--light-gray);
+    background: #ffffff;
 }
 
-/* Logo becomes the background image */
+/* Logo as background - fully visible */
 .partner-card::before {
     content: '';
     position: absolute;
@@ -390,12 +390,12 @@ h1, h2, h3, h4, h5, h6 {
     background-position: center;
     background-repeat: no-repeat;
     background-color: #ffffff;
-    opacity: 0.35;
+    opacity: 0.9;
     z-index: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Blue gradient overlay so text stays readable */
+/* LIGHT blue overlay so logo shows through clearly */
 .partner-card::after {
     content: '';
     position: absolute;
@@ -405,8 +405,8 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     background: linear-gradient(
         135deg,
-        rgba(58, 123, 184, 0.75) 0%,
-        rgba(45, 107, 163, 0.85) 100%
+        rgba(58, 123, 184, 0.35) 0%,
+        rgba(45, 107, 163, 0.45) 100%
     );
     z-index: 1;
 }
@@ -418,17 +418,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .partner-card:hover::before {
-    opacity: 0.5;
+    opacity: 1;
     transform: scale(1.05);
 }
 
-/* Text on top */
+/* Text on top with strong shadow + badge background for readability */
 .partner-card h3,
 .partner-card p {
     position: relative;
     z-index: 2;
     color: var(--white);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    text-shadow: 
+        0 1px 3px rgba(0, 0, 0, 0.9),
+        0 2px 8px rgba(0, 0, 0, 0.7),
+        0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .partner-card h3 {
@@ -437,13 +440,20 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 12px;
     font-weight: 700;
     letter-spacing: 0.5px;
+    background: rgba(45, 107, 163, 0.7);
+    padding: 8px 16px;
+    border-radius: 8px;
+    display: inline-block;
 }
 
 .partner-card p {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.95);
+    color: var(--white);
     line-height: 1.6;
     font-style: italic;
+    background: rgba(45, 107, 163, 0.7);
+    padding: 6px 14px;
+    border-radius: 6px;
     max-width: 90%;
 }
 
@@ -1054,22 +1064,42 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr;
     }
 
+    /* ===== PARTNERS - MOBILE SPECIFIC FIX ===== */
     .partners-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
     .partner-card {
-        padding: 40px 25px;
-        min-height: 260px;
+        padding: 35px 20px;
+        min-height: 300px;
+    }
+
+    /* Extra light overlay on mobile so logo shows clearly */
+    .partner-card::after {
+        background: linear-gradient(
+            135deg,
+            rgba(58, 123, 184, 0.25) 0%,
+            rgba(45, 107, 163, 0.35) 100%
+        );
+    }
+
+    .partner-card::before {
+        opacity: 1;
+        background-size: contain;
+        background-position: center;
     }
 
     .partner-card h3 {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        padding: 6px 12px;
+        background: rgba(45, 107, 163, 0.85);
     }
 
     .partner-card p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        padding: 5px 10px;
+        background: rgba(45, 107, 163, 0.85);
     }
 
     .footer-bottom {
